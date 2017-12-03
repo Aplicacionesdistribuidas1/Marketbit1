@@ -67,6 +67,4 @@ public class productoController {
 		loadDatosEditar(id);
 	}
 	
-	
-
 }

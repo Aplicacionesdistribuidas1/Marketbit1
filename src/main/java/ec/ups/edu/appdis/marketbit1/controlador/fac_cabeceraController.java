@@ -74,5 +74,6 @@ public class fac_cabeceraController {
 		loadDatosEditar(id);
 	}
 	
+
 	
 }

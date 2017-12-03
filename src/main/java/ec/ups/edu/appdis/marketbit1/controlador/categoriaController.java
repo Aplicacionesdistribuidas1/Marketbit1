@@ -75,4 +75,5 @@ public class categoriaController {
 		cadao.borrar(id);
 		return "listadoCategorias";
 	}
+	
 }

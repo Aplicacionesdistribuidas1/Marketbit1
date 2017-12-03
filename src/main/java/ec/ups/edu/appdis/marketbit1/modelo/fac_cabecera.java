@@ -58,8 +58,5 @@ public class fac_cabecera {
 		this.iva = iva;
 	}
 	
-	
-	
-	
 
 }

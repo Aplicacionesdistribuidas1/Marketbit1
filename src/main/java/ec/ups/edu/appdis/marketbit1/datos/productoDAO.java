@@ -46,4 +46,5 @@ public class productoDAO {
 		List<producto>listado = query.getResultList();
 		return listado;
 	}
+	
 }

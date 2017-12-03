@@ -47,4 +47,5 @@ public class categoriaDAO {
 		return listado;
 	}
 
+	
 }
