@@ -12,6 +12,7 @@ public class fac_cabecera {
 	@Column(name="facC_codigo")
 	private int codigo;
 	
+	
 	@Column(name="facC_numero_factura")
 	@Size(min=4,max=20)
 	private int numero_factura;

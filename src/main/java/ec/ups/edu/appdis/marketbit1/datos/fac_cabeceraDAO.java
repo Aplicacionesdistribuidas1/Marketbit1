@@ -40,6 +40,7 @@ public class fac_cabeceraDAO {
 		em.remove(fc);
 	}
 	
+	
 	public fac_cabecera leer(int id) {
 		fac_cabecera fc = em.find(fac_cabecera.class,id);
 		return fc;

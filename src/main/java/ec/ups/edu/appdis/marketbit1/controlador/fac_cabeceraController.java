@@ -9,6 +9,10 @@ import ec.ups.edu.appdis.marketbit1.datos.fac_cabeceraDAO;
 @ManagedBean
 public class fac_cabeceraController {
 	
+<<<<<<< master
+=======
+
+>>>>>>> 3140dba c6
 	@Inject
 	private fac_cabeceraDAO fcdao;
 	
