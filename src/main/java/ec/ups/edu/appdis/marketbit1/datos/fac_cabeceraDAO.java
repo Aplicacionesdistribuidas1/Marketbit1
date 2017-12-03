@@ -48,7 +48,7 @@ public class fac_cabeceraDAO {
 	}
 	
 	public List<fac_cabecera> listadofacCabecera(){
-		Query query = em.createQuery("SELECT fc FROM fac_cabecera", fac_cabecera.class);
+		Query query = em.createQuery("SELECT fc FROM fac_cabecera fc", fac_cabecera.class);
 		List<fac_cabecera>listado=query.getResultList();
 		return listado;
 		

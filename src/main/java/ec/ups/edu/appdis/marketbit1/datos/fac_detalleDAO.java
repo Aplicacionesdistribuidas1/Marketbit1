@@ -44,7 +44,7 @@ public class fac_detalleDAO {
 	}
 	
 	public List<fac_detalle> listadofacDetalle(){
-		Query query = em.createQuery("SELECT fd FROM fac_detalle", fac_detalle.class);
+		Query query = em.createQuery("SELECT fd FROM fac_detalle fd", fac_detalle.class);
 		List<fac_detalle>listado=query.getResultList();
 		return listado;
 	}
