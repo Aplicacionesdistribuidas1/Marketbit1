@@ -2,6 +2,7 @@ package ec.ups.edu.appdis.marketbit1.datos;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import ec.ups.edu.appdis.marketbit1.modelo.cliente;
 
@@ -25,6 +26,22 @@ public class clienteDAO {
 	
 	public void acuatilizar(cliente cli){
 		em.merge(cli);
+	}
+	
+	public void borar  (int id ){
+		cliente cli = leer(id);
+		em.remove(cli);
+	}
+
+	public cliente leer  (int id ){
+		cliente cli = em.find(cliente.class, id);
+		return cli;
+	}
+	
+	public java.util.List<cliente> ListadoClientes(){
+		Query query = em.createQuery("SELECT cli  FROM cliente cli", cliente.class);
+		java.util.List<cliente> listado = query.getResultList();
+		return listado;
 	}
 
 }
