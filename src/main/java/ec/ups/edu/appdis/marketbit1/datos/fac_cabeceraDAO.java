@@ -1,3 +1,4 @@
+
 package ec.ups.edu.appdis.marketbit1.datos;
 
 
@@ -19,7 +20,7 @@ public class fac_cabeceraDAO {
 	
 	public void guardar(fac_cabecera fc) {
 		
-		fca_cabecera aux=leer(fc.getCodigo());
+		fac_cabecera aux=leer(fc.getCodigo());
 		if(aux!=null) {
 			actualizar(fc);
 		}else {
