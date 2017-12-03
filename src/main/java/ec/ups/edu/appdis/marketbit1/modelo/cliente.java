@@ -73,6 +73,14 @@ public class cliente {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
+
+	@Override
+	public String toString() {
+		return "cliente [codigo=" + codigo + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido
+				+ ", email=" + email + "]";
+	}
+	
+
 	
 	
 	

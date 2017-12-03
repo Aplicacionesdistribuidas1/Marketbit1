@@ -1,6 +1,7 @@
 package ec.ups.edu.appdis.marketbit1.datos;
 
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
@@ -9,6 +10,7 @@ import ec.ups.edu.appdis.marketbit1.modelo.cliente;
 @Stateless
 public class clienteDAO {
 	
+	@Inject
 	private EntityManager em;
 	
 	public void guardar(cliente cli ) {
