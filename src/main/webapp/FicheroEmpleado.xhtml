@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+<h:form>
+	<h:panelGrid columns="3">
+	
+		<h:outputLabel value="Id:" for="codigo"/>
+		<h:inputText id="codigo" value="#{empleadoController.empleado.codigo}" />
+		<h:message for="codigo"/>
+		
+		<h:outputLabel value="Cedula:" for="cedula" />
+		<h:inputText id="cedula" value="#{empleadoController.empleado.cedula}" />
+		<h:message for="cedula"/>
+		
+		<h:outputLabel value="Nombres:" for="nombres" />
+		<h:inputText id="nombres" value="#{empleadoController.empleado.nombre}" />
+		<h:message for="nombres"/>
+		
+		<h:outputLabel value="Usuario:" for="usuario" />
+		<h:inputText id="usuario" value="#{empleadoController.empleado.usuario}" />
+		<h:message for="usuario"/>
+		
+		<h:outputLabel value="Contrasena:" for="contrasena" />
+		<h:inputText id="contrsena" value="#{empleadoController.empleado.contrasena}" />
+		<h:message for="contrasena"/>
+		
+		<h:outputLabel value="Cargo:" for="cargo" />
+		<h:inputText id="cargo" value="#{empleadoController.empleado.cargo}" />
+		<h:message for="contrasena"/>
+		
+		<h:commandButton action="#{empleadoController.guardar()}" value="Guardar" />
+		
+		
+		
+	</h:panelGrid>
+	
+	<h:commandButton action="ListadoEmpleados" value="listado de personas" immediate="true" />
+	
+</h:form>
+</body> 
+</html>
