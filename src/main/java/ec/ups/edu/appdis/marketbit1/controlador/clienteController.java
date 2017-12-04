@@ -3,6 +3,8 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
+import ec.ups.edu.appdis.marketbit1.datos.clienteDAO;
+
 @ManagedBean
 public class clienteController {
 	
