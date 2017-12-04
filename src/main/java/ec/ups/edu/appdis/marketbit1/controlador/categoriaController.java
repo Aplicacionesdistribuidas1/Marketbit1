@@ -64,16 +64,16 @@ public class categoriaController {
 	public String guardar() {
 		cadao.guardar(categoria);
 		loadCategoria();
-		return "listadoCategorias";
+		return "listadoCategoria";
 	}
 	public String loadDatosEditar(int id) {
 		System.out.println("cargando datos de categoria a editar"+ id);
 		categoria= cadao.leer(id);
-		return "FicheroCategoria";
+		return "crearCategoria";
 	}
 	public String eliminarDatos(int id) {
 		cadao.borrar(id);
-		return "listadoCategorias";
+		return "listadoCategoria";
 	}
 	
 }

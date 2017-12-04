@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+<h:form>
+	<h:outputText value="no existe datos guardados" rendered="#{empty categoriaController.categorias}"></h:outputText>
+	<h1>Listado Categorias</h1>
+	<h:dataTable value="#{categoriaController.categorias}" var="categoria" rendered="#{not empty categoriaController.categorias}">
+		
+		<h:column>
+			<f:facet name="header">codigo</f:facet>
+			#{categoria.codigo}
+		</h:column>
+		<h:column>
+			<f:facet name="header">nombre</f:facet>
+			#{categoria.nombre}
+		</h:column>
+		<h:column>
+		<f:facet name="header">Acciones</f:facet>
+		<h:commandButton action="#{categoriaController.loadDatosEditar(categoria.codigo)}" value="Editar" />
+		<a href="editarCategoria.xhtml?id=#{categoria.codigo}">Editar</a>
+		</h:column>
+		<h:column>
+		<f:facet name="header">Borrar</f:facet>
+		<h:commandButton action="#{categoriaController.eliminarDatos(categoria.codigo)}" value="Borrar" />
+		</h:column>
+	</h:dataTable>
+	<h:commandButton action="crearCategoria" value="Crear Nueva Categoria" />
+</h:form>
+
+</body> 
+</html>

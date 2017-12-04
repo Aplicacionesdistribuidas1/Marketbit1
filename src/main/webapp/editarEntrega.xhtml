@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<f:metadata>
+	<f:viewParam name="id" value="#{entregaController.id}"></f:viewParam>
+</f:metadata>
+<body> 
+<h1>Editar Persona</h1>
+
+<h:form>
+	<h:panelGrid columns="3">
+		<h:outputLabel value="Id:" for="codigo"/>
+		<h:inputText id="codigo" value="#{entregaController.entrega.codigo}" />
+		<h:message for="codigo"/>
+		
+		<h:outputLabel value="Estado:" for="estado"/>
+		<h:inputText id="estado" value="#{entregaController.entrega.estado}" />
+		<h:message for="estado"/>
+		
+		<h:outputLabel value="CostoEnvio:" for="costoenvio"/>
+		<h:inputText id="costoenvio" value="#{entregaController.entrega.costoEnvio}" />
+		<h:message for="costoenvio"/>
+		<h:commandButton action="#{entregaController.guardar()}" value="Guardar Entrega" />
+	</h:panelGrid>
+	<h:commandButton action="listadoEntrega" value="Listado de Entregas" immediate="true" />
+</h:form>
+
+</body> 
+</html>

@@ -21,6 +21,8 @@ public class producto {
 	@NotNull
 	@Column(name="pro_stock", length=10)
 	private int stock;
+	@Column(name="pro_imagen")
+	private String imagen;
 	
 	public int getCodigo() {
 		return codigo;
@@ -51,6 +53,12 @@ public class producto {
 	}
 	public void setStock(int stock) {
 		this.stock = stock;
+	}
+	public String getImagen() {
+		return imagen;
+	}
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
 	}
 	
 	

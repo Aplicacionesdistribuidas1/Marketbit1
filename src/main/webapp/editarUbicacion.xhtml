@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+<h1>Editar Ubicacion</h1>
+
+<h:form>
+	<h:panelGrid columns="3">
+		<h:outputLabel value="Id:" for="codigo"/>
+		<h:inputText id="codigo" value="#{ubicacionController.ubicacion.codigo}" />
+		<h:message for="codigo"/>
+		
+		<h:outputLabel value="Direccion:" for="direccion"/>
+		<h:inputText id="direccion" value="#{ubicacionController.ubicacion.direccion}" />
+		<h:message for="direccion"/>
+		
+		<h:outputLabel value="Sector:" for="sector"/>
+		<h:inputText id="sector" value="#{ubicacionController.ubicacion.sector}" />
+		<h:message for="sector"/>
+		
+		<h:outputLabel value="Vectorx:" for="vectorx"/>
+		<h:inputText id="vectorx" value="#{ubicacionController.ubicacion.vectorx}" />
+		<h:message for="vectorx"/>
+		
+		<h:outputLabel value="Vectory:" for="vectory"/>
+		<h:inputText id="vectory" value="#{ubicacionController.ubicacion.vectory}" />
+		<h:message for="vectory"/>
+		
+		<h:commandButton action="#{entregaController.guardar()}" value="Guardar Entrega" />
+	</h:panelGrid>
+	
+	<h:commandButton action="listadoUbicacion" value="listado de las Ubicaciones" immediate="true" />
+</h:form>
+</body> 
+</html>

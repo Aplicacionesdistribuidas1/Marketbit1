@@ -42,7 +42,7 @@ public class productoDAO {
 	
 	}
 	public java.util.List<producto> listadoProducto(){
-		Query query= em.createQuery("SELECT p FROM Persona p", producto.class);
+		Query query= em.createQuery("SELECT pr FROM producto pr", producto.class);
 		List<producto>listado = query.getResultList();
 		return listado;
 	}
