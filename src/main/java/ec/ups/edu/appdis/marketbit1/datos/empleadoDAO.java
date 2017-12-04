@@ -4,6 +4,8 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
+import ec.ups.edu.appdis.marketbit1.modelo.Empleado;
+
 @Stateless
 public class empleadoDAO {
 	

@@ -4,6 +4,9 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
+import ec.ups.edu.appdis.marketbit1.datos.empleadoDAO;
+import ec.ups.edu.appdis.marketbit1.modelo.Empleado;
+
 @ManagedBean
 public class empleadoController {
 
@@ -20,6 +23,7 @@ public class empleadoController {
 		empleado = new Empleado();
 		//cliente.addTelefono(new Telefono());
 		loadEmpleados();
+		
 	}
 	
 	
