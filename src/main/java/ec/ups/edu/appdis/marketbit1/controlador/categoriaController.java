@@ -1,16 +1,19 @@
 package ec.ups.edu.appdis.marketbit1.controlador;
 import ec.ups.edu.appdis.marketbit1.modelo.categoria;
+import ec.ups.edu.appdis.marketbit1.modelo.producto;
 import ec.ups.edu.appdis.marketbit1.datos.categoriaDAO;
 
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
 
 
 @ManagedBean
+@ViewScoped
 public class categoriaController {
 	@Inject
 	private categoriaDAO cadao;
@@ -22,6 +25,7 @@ public class categoriaController {
 	@PostConstruct
 	public void init() {
 		categoria = new categoria();
+		categoria.addProducto(new producto());
 		loadCategoria();
 	}
 
@@ -65,6 +69,10 @@ public class categoriaController {
 		cadao.guardar(categoria);
 		loadCategoria();
 		return "listadoCategoria";
+	}
+	public String addProducto() {
+		categoria.addProducto(new producto());
+		return null;
 	}
 	public String loadDatosEditar(int id) {
 		System.out.println("cargando datos de categoria a editar"+ id);

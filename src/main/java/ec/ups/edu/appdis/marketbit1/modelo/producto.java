@@ -60,6 +60,11 @@ public class producto {
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
+	@Override
+	public String toString() {
+		return "producto [codigo=" + codigo + ", nombre=" + nombre + ", precio=" + precio + ", descripcion="
+				+ descripcion + ", stock=" + stock + ", imagen=" + imagen + "]";
+	}
 	
 	
 	

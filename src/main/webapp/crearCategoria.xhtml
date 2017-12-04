@@ -19,6 +19,35 @@
 		<h:message for="nombre"/>	
 		<h:commandButton action="#{categoriaController.guardar()}" value="Guardar Categoria" />
 	</h:panelGrid>
+	<h:commandButton action="#{categoriaController.addProducto()}" value="+ Producto" >
+		<f:ajax render="tblProductos" execute="@all"/>
+	</h:commandButton>
+	<h:dataTable value="#{categoriaController.categoria.productos}" var="producto" id="tblProductos">
+				<h:column>
+					<f:facet name="header">codigo</f:facet>
+					<h:inputText value="#{producto.codigo}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">nombre</f:facet>
+					<h:inputText value="#{producto.nombre}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">precio</f:facet>
+					<h:inputText value="#{producto.precio}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">descripcion</f:facet>
+					<h:inputText value="#{producto.descripcion}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">stock</f:facet>
+					<h:inputText value="#{producto.stock}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">imagen</f:facet>
+					<h:inputText value="#{producto.imagen}" />
+				</h:column>
+			</h:dataTable>
 	<h:commandButton action="listadoCategoria" value="Listado de Categoria" immediate="true" />
 </h:form>
 
