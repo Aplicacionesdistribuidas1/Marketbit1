@@ -1,11 +1,9 @@
 package ec.ups.edu.appdis.marketbit1.datos;
-
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 
-import ec.ups.edu.appdis.marketbit1.modelo.cliente;
+import ec.ups.edu.appdis.marketbit1.modelo.Cliente;
 
 @Stateless
 public class clienteDAO {
@@ -13,36 +11,37 @@ public class clienteDAO {
 	@Inject
 	private EntityManager em;
 	
-	public void guardar(cliente cli ) {
-		cliente aux = leer(cli.getCodigo());
-		if (aux!=null) {
-			acuatilizar(cli);
+	public void guardar(Cliente cl) {
+		Cliente aux=leer(cl.getCodigo());
+		if(aux!=null){
+			actualizar(cl);
 		}else {
-			insertar(cli);
+			insertar(cl);
+			
 		}
 	}
 	
-	public void insertar  (cliente cli ){
-		em.persist(cli);
+	public void insertar (Cliente cl) {
+		em.persist(cl);
 	}
 	
-	public void acuatilizar(cliente cli){
-		em.merge(cli);
+	public void actualizar (Cliente cl) {
+		em.merge(cl);
 	}
 	
-	public void borar  (int id ){
-		cliente cli = leer(id);
-		em.remove(cli);
-	}
-
-	public cliente leer  (int id ){
-		cliente cli = em.find(cliente.class, id);
-		return cli;
+	public void borrar (int id) {
+		Cliente cl = leer (id);
+		em.remove(cl);
 	}
 	
-	public java.util.List<cliente> ListadoClientes(){
-		Query query = em.createQuery("SELECT cli  FROM cliente cli", cliente.class);
-		java.util.List<cliente> listado = query.getResultList();
+	public Cliente leer (int id) {
+		Cliente cl = em.find(Cliente.class, id);
+		return cl;
+	
+	}
+	public java.util.List<Cliente> listadoCliente(){
+		javax.persistence.Query query= em.createQuery("SELECT cl FROM Cliente cl", Cliente.class);
+		java.util.List<Cliente>listado = query.getResultList();
 		return listado;
 	}
 

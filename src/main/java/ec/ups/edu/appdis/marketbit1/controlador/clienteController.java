@@ -1,55 +1,49 @@
 package ec.ups.edu.appdis.marketbit1.controlador;
-
-import java.util.List;
-
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
-
-import ec.ups.edu.appdis.marketbit1.datos.clienteDAO;
-import ec.ups.edu.appdis.marketbit1.modelo.cliente;
-
 
 @ManagedBean
 public class clienteController {
 	
 	@Inject
-	private clienteDAO clidao;
-
-	private cliente clientes = null;
+	private clienteDAO cldao;
 	
-	private List<cliente> listCliente;
+	private Cliente cliente = null;
+	private java.util.List<Cliente> clientes;
 	
 	private int id;
 	
 	@PostConstruct
-	public void init(){
-		clientes = new cliente();
-		LoadClientes();
+	public void init() {
+		cliente = new Cliente();
+		//cliente.addTelefono(new Telefono());
+		loadClientes();
+	}
+	
+	
+	public void loadClientes() {
+		clientes = cldao.listadoCliente();
+	}
+	public String guardar()
+	{
+		
+		cldao.guardar(cliente);
+		loadClientes();
+		return "listadoCliente";
 	}
 
-	public clienteDAO getClidao() {
-		return clidao;
+	
+	
+	public String loadDatosEditar(int id) {
+		System.out.println("cargando datos de cliente a editar"+ id);
+		cliente= cldao.leer(id);
+		return "FicheroCliente";
 	}
-
-	public void setClidao(clienteDAO clidao) {
-		this.clidao = clidao;
-	}
-
-	public cliente getClientes() {
-		return clientes;
-	}
-
-	public void setClientes(cliente clientes) {
-		this.clientes = clientes;
-	}
-
-	public List<cliente> getListCliente() {
-		return listCliente;
-	}
-
-	public void setListCliente(List<cliente> listCliente) {
-		this.listCliente = listCliente;
+	
+	public String eliminarDatos(int id) {
+		cldao.borrar(id);
+		return "listadoPersonas";
 	}
 
 	public int getId() {
@@ -58,30 +52,31 @@ public class clienteController {
 
 	public void setId(int id) {
 		this.id = id;
-		LoadDatosEditar(id);
-	}
-	
-	public void LoadClientes() {
-		listCliente = clidao.ListadoClientes();
-	}
-	
-	public String LoadDatosEditar(int id) {
-		System.out.println("cargando datos de persona a editar "+ id);
-		clientes = clidao.leer(id);
-		return "clientes";
+		loadDatosEditar(id);
 	}
 
-	public String guardar(){
-		System.out.println(clientes);
-		clidao.guardar(clientes);
-		LoadClientes();
-		 return "listar";
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+
+	public java.util.List<Cliente> getClientes() {
+		return clientes;
+	}
+
+
+	public void setClientes(java.util.List<Cliente> clientes) {
+		this.clientes = clientes;
 	}
 	
-	public String eliminar(int id) {
-		clidao.borar(id);
-		return "listar";
-	}
 	
 	
 }
+
+
