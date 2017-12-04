@@ -4,6 +4,7 @@ import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
 import ec.ups.edu.appdis.marketbit1.datos.clienteDAO;
+import ec.ups.edu.appdis.marketbit1.modelo.Cliente;
 
 @ManagedBean
 public class clienteController {
