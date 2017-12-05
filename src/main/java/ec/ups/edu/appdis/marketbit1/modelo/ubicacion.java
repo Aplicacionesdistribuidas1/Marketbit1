@@ -52,6 +52,11 @@ public class ubicacion {
 	public void setVectory(double vectory) {
 		this.vectory = vectory;
 	}
+	@Override
+	public String toString() {
+		return "ubicacion [codigo=" + codigo + ", direccion=" + direccion + ", sector=" + sector + ", vectorx="
+				+ vectorx + ", vectory=" + vectory + "]";
+	}
 	
 	
 	

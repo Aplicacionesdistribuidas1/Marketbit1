@@ -43,7 +43,7 @@ public class fac_cabeceraController {
 	public String guardar() {
 		fcdao.guardar(fac_cabecera);
 		loadfac_cabeceras() ;
-		return"listadofacCabeceras";
+		return"listadoFacCabe";
 	}
 
 	public List<fac_cabecera> getFac_cabeceras() {
@@ -57,12 +57,12 @@ public class fac_cabeceraController {
 	public String loadDatosEditar(int id) {
 		System.out.println("Cargar datos de la factura para editar"+id);
 		fac_cabecera = fcdao.leer(id);
-		return"Ficherofac_cabecera";
+		return"FicheroFacCa";
 	}
 	
 	public String eliminarDatos(int id) {
 		fcdao.borrar(id);
-		return"listadofacCabeceras";
+		return"listadoFacCabe";
 	}
 
 	public int getId() {

@@ -1,52 +1,57 @@
 package ec.ups.edu.appdis.marketbit1.controlador;
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
 import ec.ups.edu.appdis.marketbit1.datos.clienteDAO;
-import ec.ups.edu.appdis.marketbit1.modelo.Cliente;
+import ec.ups.edu.appdis.marketbit1.modelo.cliente;
+import ec.ups.edu.appdis.marketbit1.modelo.fac_cabecera;
+import ec.ups.edu.appdis.marketbit1.modelo.ubicacion;
 
 @ManagedBean
+@ViewScoped
 public class clienteController {
 	
 	@Inject
-	private clienteDAO cldao;
+	private clienteDAO clidao;
 	
-	private Cliente cliente = null;
-	private java.util.List<Cliente> clientes;
+	private cliente cliente = null;
+	private List<cliente> clientes;
 	
 	private int id;
 	
 	@PostConstruct
 	public void init() {
-		cliente = new Cliente();
-		//cliente.addTelefono(new Telefono());
+		cliente = new cliente();
+		cliente.addUbicacion(new ubicacion());
 		loadClientes();
-	}
-	
-	
-	public void loadClientes() {
-		clientes = cldao.listadoCliente();
-	}
-	public String guardar()
-	{
-		
-		cldao.guardar(cliente);
-		loadClientes();
-		return "listadoCliente";
 	}
 
-	
-	
-	public String loadDatosEditar(int id) {
-		System.out.println("cargando datos de cliente a editar"+ id);
-		cliente= cldao.leer(id);
-		return "FicheroCliente";
+	public clienteDAO getClidao() {
+		return clidao;
 	}
-	
-	public String eliminarDatos(int id) {
-		cldao.borrar(id);
-		return "listadoPersonas";
+
+	public void setClidao(clienteDAO clidao) {
+		this.clidao = clidao;
+	}
+
+	public cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public List<cliente> getClientes() {
+		return clientes;
+	}
+
+	public void setClientes(List<cliente> clientes) {
+		this.clientes = clientes;
 	}
 
 	public int getId() {
@@ -57,26 +62,29 @@ public class clienteController {
 		this.id = id;
 		loadDatosEditar(id);
 	}
-
-
-	public Cliente getCliente() {
-		return cliente;
+	public void loadClientes() {
+		clientes=clidao.listadoCliente();
 	}
-
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+	public String guardar() {
+		clidao.guardar(cliente);
+		loadClientes();
+		return "listadoClientes";
 	}
-
-
-	public java.util.List<Cliente> getClientes() {
-		return clientes;
+	public String addUbicacion() {
+		cliente.addUbicacion(new ubicacion());
+		return null;
 	}
-
-
-	public void setClientes(java.util.List<Cliente> clientes) {
-		this.clientes = clientes;
+	
+	public String loadDatosEditar(int id) {
+		System.out.println("cargando datos de Cliente a editar"+ id);
+		cliente= clidao.leer(id);
+		return "FicheroPersona";
 	}
+	public String eliminarDatos(int id) {
+		clidao.borrar(id);
+		return "ListadoClientes";
+	}
+	
 	
 	
 	

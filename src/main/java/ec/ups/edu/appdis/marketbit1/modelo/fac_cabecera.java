@@ -4,9 +4,8 @@ package ec.ups.edu.appdis.marketbit1.modelo;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+
 
 @Entity
 public class fac_cabecera {
@@ -27,8 +26,6 @@ public class fac_cabecera {
 	@Column(name="facC_iva")
 	/*@Size(min=2, max=10)*/
 	private double iva;
-
-	@JoinColumn(name="id", referencedColumnName="facCodigo")
 	
 	public int getCodigo() {
 		return codigo;
@@ -61,7 +58,14 @@ public class fac_cabecera {
 	public void setIva(double iva) {
 		this.iva = iva;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "fac_cabecera [codigo=" + codigo + ", numero_factura=" + numero_factura + ", total=" + total + ", iva="
+				+ iva + "]";
+	}
+
+
 	
 
 }

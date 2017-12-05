@@ -1,9 +1,16 @@
 package ec.ups.edu.appdis.marketbit1.modelo;
-import java.util.Date;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
@@ -12,8 +19,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Email;
 
 @Entity
-public class Cliente {
-
+public class cliente {
 	@Id
 	@Column (name="cli_codigo", length=10)
 	private int codigo;
@@ -44,6 +50,10 @@ public class Cliente {
 	@Temporal(value = TemporalType.DATE)
 	@Column(name="cli_fecNaci")
 	private Date fechaNacimiento;
+	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="id", referencedColumnName="cli_codigo")
+	private List<ubicacion> ubicaciones;
 
 	public int getCodigo() {
 		return codigo;
@@ -59,6 +69,22 @@ public class Cliente {
 
 	public void setCedula(String cedula) {
 		this.cedula = cedula;
+	}
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	public String getContrasena() {
+		return contrasena;
+	}
+
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
 	}
 
 	public String getNombres() {
@@ -84,33 +110,27 @@ public class Cliente {
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
+
+	public List<ubicacion> getUbicaciones() {
+		return ubicaciones;
+	}
+
+	public void setUbicaciones(List<ubicacion> ubicaciones) {
+		this.ubicaciones = ubicaciones;
+	}
 	
-	public String getUsuario() {
-		return usuario;
+	public void addUbicacion(ubicacion ubicacion) {
+		if(ubicaciones==null)
+			ubicaciones=new ArrayList<>();
+		ubicaciones.add(ubicacion);
 	}
 
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
-	}
-
-	public String getContrasena() {
-		return contrasena;
-	}
-	public void setContrasena(String contrasena) {
-		this.contrasena = contrasena;
-	}
 	@Override
 	public String toString() {
-		return "Cliente [codigo=" + codigo + ", cedula=" + cedula + ", usuario=" + usuario + ", contrasena="
+		return "cliente [codigo=" + codigo + ", cedula=" + cedula + ", usuario=" + usuario + ", contrasena="
 				+ contrasena + ", nombres=" + nombres + ", email=" + email + ", fechaNacimiento=" + fechaNacimiento
-				+ "]";
+				+ ", ubicaciones=" + ubicaciones + "]";
 	}
 
-
 	
-	
-	
-	
-	
-
 }

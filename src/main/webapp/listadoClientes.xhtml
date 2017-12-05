@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+<h:outputText value="no existe registros guardados" rendered="#{empty clienteController.clientes}"></h:outputText>
+	<h1>Listado Clientes</h1>
+	<h:dataTable value="#{clienteController.clientes}" var="cliente" rendered="#{not empty clienteController.clientes}">
+	
+	<h:column>
+	<f:facet name="header">codigo</f:facet>
+	#{cliente.codigo}	
+	</h:column>
+	<h:column>
+	<f:facet name="header">cedula</f:facet>
+	#{cliente.cedula}
+	</h:column>
+	<h:column>
+	<f:facet name="header">nombres</f:facet>
+	#{cliente.nombres}
+	</h:column>
+	<h:column>
+	<f:facet name="header">e-mail</f:facet>
+	#{cliente.email}
+	</h:column>
+	<h:column>
+	<f:facet name="header">usuario</f:facet>
+	#{cliente.usuario}
+	</h:column>
+	<h:column>
+	<f:facet name="header">contresena</f:facet>
+	#{cliente.contrasena}
+	</h:column>
+	<h:column>
+	<f:facet name="header">Fecha nacimiento</f:facet>
+	#{cliente.fechaNacimiento}
+	</h:column>
+	<h:column>
+	<f:facet name="header">Acciones</f:facet>
+	<h:commandButton action="#{clienteController.loadDatosEditar(cliente.codigo)}" value="EDitar" />
+	<a href="editarCliente.xhtml?id=#{cliente.codigo}">Editar</a>
+	</h:column>
+	<h:column>
+	<f:facet name="header">Borrar</f:facet>
+	<h:commandButton action="#{clienteController.eliminarDatos(cliente.codigo)}" value="Borrar" />
+	
+	</h:column>
+	</h:dataTable>
+<h:commandButton action="crearCliente" value="crear nueva persona" />
+
+</body> 
+</html>
