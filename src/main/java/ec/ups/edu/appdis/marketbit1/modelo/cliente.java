@@ -55,6 +55,7 @@ public class cliente {
 	@JoinColumn(name="id", referencedColumnName="cli_codigo")
 	private List<ubicacion> ubicaciones;
 
+<<<<<<< master
 	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	@JoinColumn(name="id", referencedColumnName="per_codigo")
 	private List<fac_cabecera> cabeceras;
@@ -151,6 +152,84 @@ public class cliente {
 	}
 
 	
+=======
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getCedula() {
+		return cedula;
+	}
+
+	public void setCedula(String cedula) {
+		this.cedula = cedula;
+	}
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	public String getContrasena() {
+		return contrasena;
+	}
+
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
+	}
+
+	public String getNombres() {
+		return nombres;
+	}
+
+	public void setNombres(String nombres) {
+		this.nombres = nombres;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Date getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+
+	public List<ubicacion> getUbicaciones() {
+		return ubicaciones;
+	}
+
+	public void setUbicaciones(List<ubicacion> ubicaciones) {
+		this.ubicaciones = ubicaciones;
+	}
+	
+	public void addUbicacion(ubicacion ubicacion) {
+		if(ubicaciones==null)
+			ubicaciones=new ArrayList<>();
+		ubicaciones.add(ubicacion);
+	}
+
+	@Override
+	public String toString() {
+		return "cliente [codigo=" + codigo + ", cedula=" + cedula + ", usuario=" + usuario + ", contrasena="
+				+ contrasena + ", nombres=" + nombres + ", email=" + email + ", fechaNacimiento=" + fechaNacimiento
+				+ ", ubicaciones=" + ubicaciones + "]";
+	}
+>>>>>>> 1061fba m50
 
 	
 }

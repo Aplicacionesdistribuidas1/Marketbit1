@@ -34,7 +34,10 @@ public class entrega {
 	public void setCostoEnvio(double costoEnvio) {
 		this.costoEnvio = costoEnvio;
 	}
-	
+	@Override
+	public String toString() {
+		return "ubicacion [codigo=" + codigo + ", estado=" + estado + ", costoEnvio=" + costoEnvio + "]";
+	}
 	
 	
 

@@ -64,5 +64,11 @@ public class fac_cabecera {
 		return "fac_cabecera [codigo=" + codigo + ", numero_factura=" + numero_factura + ", total=" + total + ", iva="
 				+ iva + "]";
 	}
+<<<<<<< master
+=======
+
+
+	
+>>>>>>> 1061fba m50
 
 }

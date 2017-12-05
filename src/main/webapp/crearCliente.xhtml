@@ -47,6 +47,7 @@
 	<h:commandButton action="#{clienteController.addUbicacion()}" value="+ Ubicacion" >
 		<f:ajax render="tblUbicaciones" execute="@all"/>
 	</h:commandButton>
+<<<<<<< master
 	<h:commandButton action="#{clienteController.addCabecera()}" value="+ Cabecera" >
 		<f:ajax render="tblCabecera" execute="@all"/>
 	</h:commandButton>
@@ -93,6 +94,31 @@
 		</h:dataTable>
 	
 
+=======
+<h:dataTable value="#{clienteController.cliente.ubicaciones}" var="ubicacion" id="tblUbicaciones">
+		<h:column>
+			<f:facet name="header">codigo</f:facet>
+			<h:inputText value="#{ubicacion.codigo}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">direccion</f:facet>
+			<h:inputText value="#{ubicacion.direccion}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">sector</f:facet>
+			<h:inputText value="#{ubicacion.sector}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">vectorx</f:facet>
+			<h:inputText value="#{ubicacion.vectorx}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">vectory</f:facet>
+			<h:inputText value="#{ubicacion.vectory}" />
+		</h:column>
+
+</h:dataTable>
+>>>>>>> 1061fba m50
 <h:commandButton action="listadoUbicacion" value="listado de Clientes" immediate="true" />
 	
 	

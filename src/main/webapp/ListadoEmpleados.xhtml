@@ -14,24 +14,24 @@
 	<h:dataTable value="#{empleadoController.empleados}" var="empleado" rendered="#{not empty empleadoController.empleados}">
 	
 	<h:column>
-	<f:facet name="header">codigo</f:facet>
+	<f:facet name="header">Codigo</f:facet>
 	#{empleado.codigo}
 	</h:column>
 	<h:column>
-	<f:facet name="header">cedula</f:facet>
+	<f:facet name="header">Cedula</f:facet>
 	#{empleado.cedula}
 	</h:column>
 	<h:column>
-	<f:facet name="header">nombres</f:facet>
+	<f:facet name="header">Nombres</f:facet>
 	#{empleado.nombre}
 	</h:column>
 	<h:column>
-	<f:facet name="header">Fecha nacimiento</f:facet>
+	<f:facet name="header">Cargo</f:facet>
 	#{empleado.cargo}
 	</h:column>
 	<h:column>
 	<f:facet name="header">Acciones</f:facet>
-	<h:commandButton action="#{empleadoController.loadDatosEditar(empleado.codigo)}" value="EDitar" />
+	<h:commandButton action="#{empleadoController.loadDatosEditar(empleado.codigo)}" value="Editar" />
 	<a href="EditarEmpleado.xhtml?id=#{empleado.codigo}">Editar</a>
 	</h:column>
 	<h:column>

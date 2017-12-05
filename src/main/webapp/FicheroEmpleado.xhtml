@@ -39,8 +39,27 @@
 		
 	</h:panelGrid>
 	
-	<h:commandButton action="ListadoEmpleados" value="listado de personas" immediate="true" />
+	<h:commandButton action="listadoEntrega" value="listado de entregas" immediate="true" />
+		<h:commandButton action="#{empleadoController.addEntrega()}" value="+ Entrega" >
+		<f:ajax render="tblEntregas" execute="@all"/>
+	</h:commandButton>
 	
+	<h:dataTable value="#{empleadoController.empleado.entregas}" var="entrega" id="tblEntregas">
+		<h:column>
+			<f:facet name="header">Codigo</f:facet>
+			<h:inputText value="#{entrega.codigo}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Estado</f:facet>
+			<h:inputText value="#{entrega.estado}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">CostoEnvio</f:facet>
+			<h:inputText value="#{entrega.costoEnvio}" />
+		</h:column>
+
+	</h:dataTable>
+<h:commandButton action="listadoEmpleados" value="listado de Empleados" immediate="true" />
 </h:form>
 </body> 
 </html>

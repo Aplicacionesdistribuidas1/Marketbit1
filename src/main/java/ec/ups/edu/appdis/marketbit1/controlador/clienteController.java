@@ -27,7 +27,10 @@ public class clienteController {
 	public void init() {
 		cliente = new cliente();
 		cliente.addUbicacion(new ubicacion());
+<<<<<<< master
 		cliente.addCabecera(new fac_cabecera());
+=======
+>>>>>>> 1061fba m50
 		loadClientes();
 	}
 
@@ -76,10 +79,22 @@ public class clienteController {
 		return null;
 	}
 	
+<<<<<<< master
 	public String addCabecera() {
 		cliente.addCabecera(new fac_cabecera());
 		return null;
+=======
+	public String loadDatosEditar(int id) {
+		System.out.println("cargando datos de Cliente a editar"+ id);
+		cliente= clidao.leer(id);
+		return "FicheroPersona";
+>>>>>>> 1061fba m50
 	}
+	public String eliminarDatos(int id) {
+		clidao.borrar(id);
+		return "ListadoClientes";
+	}
+	
 	
 	public String loadDatosEditar(int id) {
 		System.out.println("cargando datos de Cliente a editar"+ id);

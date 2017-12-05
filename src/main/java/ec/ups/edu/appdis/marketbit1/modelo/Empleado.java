@@ -1,8 +1,15 @@
 package ec.ups.edu.appdis.marketbit1.modelo;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -37,7 +44,11 @@ public class Empleado {
 	@Column(name = "emp_cargo")
 	@Size(min = 4, max = 20)
 	private String cargo;
-
+	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="id", referencedColumnName="emp_codigo")
+	private List<entrega> entregas;
+	
 	public int getCodigo() {
 		return codigo;
 	}
@@ -85,15 +96,27 @@ public class Empleado {
 	public void setContrasena(String contrasena) {
 		this.contrasena = contrasena;
 	}
+	
+	public void addEntrega(entrega entrega) {
+		if(entregas==null)
+			entregas=new ArrayList<>();
+			entregas.add(entrega);
+	}
+	
+	public List<entrega> getEntregas() {
+		return entregas;
+	}
 
+	public void setEntregas(List<entrega> entregas) {
+		this.entregas = entregas;
+	}
+	
 	@Override
 	public String toString() {
 		return "Empleado [codigo=" + codigo + ", cedula=" + cedula + ", nombre=" + nombre + ", usuario=" + usuario
 				+ ", contrasena=" + contrasena + ", cargo=" + cargo + "]";
 	}
 
-	
-	
 	
 	
 
