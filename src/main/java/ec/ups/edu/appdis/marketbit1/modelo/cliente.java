@@ -55,6 +55,10 @@ public class cliente {
 	@JoinColumn(name="id", referencedColumnName="cli_codigo")
 	private List<ubicacion> ubicaciones;
 
+	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@JoinColumn(name="id", referencedColumnName="per_codigo")
+	private List<fac_cabecera> cabeceras;
+	
 	public int getCodigo() {
 		return codigo;
 	}
@@ -118,19 +122,35 @@ public class cliente {
 	public void setUbicaciones(List<ubicacion> ubicaciones) {
 		this.ubicaciones = ubicaciones;
 	}
-	
+		
+	public List<fac_cabecera> getCabeceras() {
+		return cabeceras;
+	}
+
+	public void setCabeceras(List<fac_cabecera> cabeceras) {
+		this.cabeceras = cabeceras;
+	}
+
 	public void addUbicacion(ubicacion ubicacion) {
 		if(ubicaciones==null)
 			ubicaciones=new ArrayList<>();
 		ubicaciones.add(ubicacion);
+	}
+	
+	public void addCabecera(fac_cabecera cabecera) {
+		if(cabeceras==null)
+			cabeceras=new ArrayList<>();
+		cabeceras.add(cabecera);
 	}
 
 	@Override
 	public String toString() {
 		return "cliente [codigo=" + codigo + ", cedula=" + cedula + ", usuario=" + usuario + ", contrasena="
 				+ contrasena + ", nombres=" + nombres + ", email=" + email + ", fechaNacimiento=" + fechaNacimiento
-				+ ", ubicaciones=" + ubicaciones + "]";
+				+ ", ubicaciones=" + ubicaciones + ", cabeceras=" + cabeceras + "]";
 	}
+
+	
 
 	
 }

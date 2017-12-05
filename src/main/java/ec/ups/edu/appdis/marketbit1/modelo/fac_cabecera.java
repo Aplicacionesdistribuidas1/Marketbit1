@@ -65,7 +65,4 @@ public class fac_cabecera {
 				+ iva + "]";
 	}
 
-
-	
-
 }

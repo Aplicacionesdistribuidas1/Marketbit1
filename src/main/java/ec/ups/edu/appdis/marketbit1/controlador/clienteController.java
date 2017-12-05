@@ -27,6 +27,7 @@ public class clienteController {
 	public void init() {
 		cliente = new cliente();
 		cliente.addUbicacion(new ubicacion());
+		cliente.addCabecera(new fac_cabecera());
 		loadClientes();
 	}
 
@@ -72,6 +73,11 @@ public class clienteController {
 	}
 	public String addUbicacion() {
 		cliente.addUbicacion(new ubicacion());
+		return null;
+	}
+	
+	public String addCabecera() {
+		cliente.addCabecera(new fac_cabecera());
 		return null;
 	}
 	

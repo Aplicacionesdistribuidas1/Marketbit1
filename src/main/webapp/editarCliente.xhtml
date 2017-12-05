@@ -50,6 +50,9 @@
 	<h:commandButton action="#{clienteController.addUbicacion()}" value="+ Ubicacion" >
 		<f:ajax render="tblUbicaciones" execute="@all"/>
 	</h:commandButton>
+	<h:commandButton action="#{clienteController.addCabecera()}" value="+ Cabecera" >
+		<f:ajax render="tblCabecera" execute="@all"/>
+	</h:commandButton>
 	<h:dataTable value="#{clienteController.cliente.ubicaciones}" var="ubicacion" id="tblUbicaciones">
 		<h:column>
 			<f:facet name="header">codigo</f:facet>
@@ -73,6 +76,24 @@
 		</h:column>
 
 </h:dataTable>
+<h:dataTable value="#{clienteController.cliente.cabeceras}" var="cabecera" id="tblCabecera">
+		<h:column>
+			<f:facet name="header">codigo</f:facet>
+			<h:inputText value="#{cabecera.codigo}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">numerofactura</f:facet>
+			<h:inputText value="#{cabecera.numero_factura}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">total</f:facet>
+			<h:inputText value="#{cabecera.total}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">iva</f:facet>
+			<h:inputText value="#{cabecera.iva}" />
+		</h:column>
+		</h:dataTable>
 <h:commandButton action="listadoUbicacion" value="listado de Clientes" immediate="true" />
 </h:form>
 </body> 
