@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+
+	<h1>Crear Factura Cabecera</h1>
+	
+<h:form>
+	<h:panelGrid columns="3">
+		<h:outputLabel value="Id:" for="codigo" />
+		<h:inputText id="codigo" value="#{fac_cabeceraController.fac_cabecera.codigo}" />
+		<h:message for="codigo"/>
+	
+		<h:outputLabel value="NumeroFactura" for="numerofactura"/>
+		<h:inputText id="Numerofactura" value="#{fac_cabeceraController.fac_cabecera.numero_factura}"/>
+		<h:message for="numero_factura"/>
+		
+		<h:outputLabel value="Total" for="totales" />
+		<h:inputText id="totales" value="#{fac_cabeceraController.fac_cabecera.total}"/>
+		<h:message for="total"/>
+		
+		<h:outputLabel value="IVA" for="ivas"/>
+		<h:inputText id="ivas" value="#{fac_cabeceraController.fac_cabecera.iva}"/>
+		<h:message for="iva"/>
+		
+		<h:commandButton action="#{fac_cabeceraController.guardar()}" value="Guardar" />
+		
+	</h:panelGrid>
+	<h:commandButton action="#{fac_cabeceraController.addDetalle()}" value="+ Detalle" >
+		<f:ajax render="tblDetalle" execute="@all"/>
+	</h:commandButton>
+<h:dataTable value="#{fac_cabeceraController.fac_cabecera.detalles}" var="det" id="tblDetalle">
+		<h:column>
+			<f:facet name="header">Codigo</f:facet>
+			<h:inputText value="#{det.codigo}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Cantidad</f:facet>
+			<h:inputText value="#{det.cantidad}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Subtotal</f:facet>
+			<h:inputText value="#{det.subtotal}" />
+		</h:column>
+		
+
+</h:dataTable>
+	<h:commandButton action="ListadoFacCabecera.xhtml" value="listado de facturas cabeceras" immediate="true"/>
+	
+</h:form>
+
+</body> 
+</html>

@@ -1,7 +1,9 @@
 package ec.ups.edu.appdis.marketbit1.modelo;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -13,6 +15,8 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 public class Empleado {
 	
@@ -21,33 +25,34 @@ public class Empleado {
 	private int codigo;
 	
 	@NotNull
+	@NotEmpty
 	@Column(name = "emp_cedula", length = 10)
 	@Size(max = 10)
 	private String cedula;
 	
 	@NotNull
+	@NotEmpty
 	@Column(name = "emp_nombre")
 	@Size(min = 4, max = 20)
 	private String nombre;
 	
 	@NotNull
+	@NotEmpty
 	@Column(name = "emp_usuario")
 	@Size(min = 4, max = 20)
 	private String usuario;
 	
 	@NotNull
+	@NotEmpty
 	@Column(name = "emp_contrasena")
 	@Size(min = 4, max = 20)
 	private String contrasena;
 	
 	@NotNull
+	@NotEmpty
 	@Column(name = "emp_cargo")
 	@Size(min = 4, max = 20)
 	private String cargo;
-	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="id", referencedColumnName="emp_codigo")
-	private List<entrega> entregas;
 	
 	public int getCodigo() {
 		return codigo;
@@ -97,26 +102,13 @@ public class Empleado {
 		this.contrasena = contrasena;
 	}
 	
-	public void addEntrega(entrega entrega) {
-		if(entregas==null)
-			entregas=new ArrayList<>();
-			entregas.add(entrega);
-	}
-	
-	public List<entrega> getEntregas() {
-		return entregas;
-	}
-
-	public void setEntregas(List<entrega> entregas) {
-		this.entregas = entregas;
-	}
-	
 	@Override
 	public String toString() {
 		return "Empleado [codigo=" + codigo + ", cedula=" + cedula + ", nombre=" + nombre + ", usuario=" + usuario
 				+ ", contrasena=" + contrasena + ", cargo=" + cargo + "]";
 	}
-
+	
+	
 	
 	
 

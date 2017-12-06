@@ -5,11 +5,8 @@
       xmlns:h="http://java.sun.com/jsf/html"> 
 
 <h:head></h:head> 
-<f:metadata>
-	<f:viewParam name="id" value="#{clienteController.id}"></f:viewParam>
-</f:metadata>
 <body> 
-<h1>Editar Cliente</h1>
+<h1>Crear Cliente</h1>
 
 <h:form>
 	<h:panelGrid columns="3">
@@ -33,9 +30,9 @@
 		<h:inputText id="usuario" value="#{clienteController.cliente.usuario}" />
 		<h:message for="usuario"/>
 		
-		<h:outputLabel value="Contraseña:" for="contraseña"/>
-		<h:inputText id="contraseña" value="#{clienteController.cliente.contrasena}" />
-		<h:message for="contraseña"/>
+		<h:outputLabel value="Contraseña:" for="contrasena"/>
+		<h:inputText id="contrasena" value="#{clienteController.cliente.contrasena}" />
+		<h:message for="contrasena"/>
 		
 		<h:outputLabel value="Fecha Nacimiento (yyyy/mm/dd):" for="fecha" />
 		<h:inputText id="fecha" value="#{clienteController.cliente.fechaNacimiento}" >
@@ -44,13 +41,15 @@
 		<h:message for="fecha"/>
 		
 		<h:commandButton action="#{clienteController.guardar()}" value="Guardar Cliente" />
-
+		
 	</h:panelGrid>
-	<h:commandButton action="#{clienteController.addUbicacion()}" value="+ Ubicacion" >
-		<f:ajax render="tblUbicaciones" execute="@all"/>
-	</h:commandButton>
 	
-	<h:dataTable value="#{clienteController.cliente.ubicaciones}" var="ubicacion" id="tblUbicaciones">
+	<h:commandButton action="#{clienteController.addUbicacion()}" value="+ Ubicacion" >
+		<f:ajax render="tblUbicacion" execute="@all"/>
+	</h:commandButton>
+
+
+<h:dataTable value="#{clienteController.cliente.ubicaciones}" var="ubicacion" id="tblUbicacion">
 		<h:column>
 			<f:facet name="header">codigo</f:facet>
 			<h:inputText value="#{ubicacion.codigo}" />
@@ -73,7 +72,8 @@
 		</h:column>
 
 </h:dataTable>
-<h:commandButton action="listadoCliente" value="listado de Clientes" immediate="true" />
+
+<h:commandButton action="ListadoClientes" value="listado de Clientes" immediate="true" />
 </h:form>
 </body> 
 </html>

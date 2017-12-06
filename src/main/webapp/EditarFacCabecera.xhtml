@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head>
+<f:metadata>
+	<f:viewParam name="id" value="#{fac_cabeceraController.id}"></f:viewParam>
+</f:metadata> 
+<body> 
+
+	<h1>Editar Cabecera de factura</h1>
+	
+<h:form>
+	<h:panelGrid columns="3">
+		<h:outputLabel value="Id" for="codigo"/>
+		<h:inputText id="codigo" value="#{fac_cabeceraController.fac_cabecera.codigo}"/>
+		<h:message for="codigo"/>
+		
+		<h:outputLabel value="NumeroFactura" for="numero_factura"/>
+		<h:inputText id="numerofactura" value="#{fac_cabeceraController.fac_cabecera.numero_factura}" />
+		<h:message for="numerofactura"/>
+		
+		<h:outputLabel value="iva" for="iva"/>
+		<h:inputText id="iva" value="#{fac_cabeceraController.fac_cabecera.iva}" />
+		<h:message for="iva"/>
+		
+		<h:outputLabel value="total" for="total"/>
+		<h:inputText id="total" value="#{fac_cabeceraController.fac_cabecera.total}" />
+		<h:message for="total"/>
+	
+	<h:commandButton action="#{fac_cabeceraController.guardar()}" value="Guardar" />
+	
+</h:panelGrid>
+<h:commandButton action="#{fac_cabeceraController.addDetalle()}" value="+ Detalle" >
+		<f:ajax render="tblDetalle" execute="@all"/>
+	</h:commandButton>
+<h:dataTable value="#{fac_cabeceraController.fac_cabecera.detalles}" var="det" id="tblDetalle">
+		<h:column>
+			<f:facet name="header">Codigo</f:facet>
+			<h:inputText value="#{det.codigo}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Cantidad</f:facet>
+			<h:inputText value="#{det.cantidad}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Subtotal</f:facet>
+			<h:inputText value="#{det.subtotal}" />
+		</h:column>
+		
+
+</h:dataTable>
+<h:commandButton action="listadoFacCabe" value="listado de facturas cabeceras" immediate="true"/>
+
+
+</h:form>
+
+
+
+</body> 
+</html>

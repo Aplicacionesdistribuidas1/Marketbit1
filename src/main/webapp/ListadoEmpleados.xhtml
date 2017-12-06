@@ -26,12 +26,19 @@
 	#{empleado.nombre}
 	</h:column>
 	<h:column>
+	<f:facet name="header">Usuario</f:facet>
+	#{empleado.usuario}
+	</h:column>
+		<h:column>
+	<f:facet name="header">Contrasena</f:facet>
+	#{empleado.contrasena}
+	</h:column>
+		<h:column>
 	<f:facet name="header">Cargo</f:facet>
 	#{empleado.cargo}
 	</h:column>
 	<h:column>
 	<f:facet name="header">Acciones</f:facet>
-	<h:commandButton action="#{empleadoController.loadDatosEditar(empleado.codigo)}" value="Editar" />
 	<a href="EditarEmpleado.xhtml?id=#{empleado.codigo}">Editar</a>
 	</h:column>
 	<h:column>
@@ -40,7 +47,7 @@
 	
 	</h:column>
 	</h:dataTable>
-<h:commandButton action="FicheroEmpleado" value="crear nueva persona" immediate="true" />
+<h:commandButton action="CrearEmpleado" value="crear nueva persona" immediate="true" />
 	
  </h:form>
 </body> 

@@ -5,12 +5,10 @@
       xmlns:h="http://java.sun.com/jsf/html"> 
 
 <h:head></h:head> 
-<f:metadata>
-	<f:viewParam name="id" value="#{empleadoController.id}"></f:viewParam>
-</f:metadata>
 <body> 
-	<h:form>
+<h:form>
 	<h:panelGrid columns="3">
+	
 		<h:outputLabel value="Id:" for="codigo"/>
 		<h:inputText id="codigo" value="#{empleadoController.empleado.codigo}" />
 		<h:message for="codigo"/>
@@ -30,13 +28,19 @@
 		<h:outputLabel value="Contrasena:" for="contrasena" />
 		<h:inputText id="contrsena" value="#{empleadoController.empleado.contrasena}" />
 		<h:message for="contrasena"/>
+		
 		<h:outputLabel value="Cargo:" for="cargo" />
 		<h:inputText id="cargo" value="#{empleadoController.empleado.cargo}" />
 		<h:message for="contrasena"/>
 		
 		<h:commandButton action="#{empleadoController.guardar()}" value="Guardar" />
-	</h:panelGrid>	
+		
+		
+		
+	</h:panelGrid>
+	
+	
+<h:commandButton action="listadoEmpleados" value="listado de Empleados" immediate="true" />
 </h:form>
-
 </body> 
 </html>
