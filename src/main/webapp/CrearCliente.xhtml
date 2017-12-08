@@ -31,7 +31,7 @@
 		<h:message for="usuario"/>
 		
 		<h:outputLabel value="Contraseña:" for="contrasena"/>
-		<h:inputText id="contrasena" value="#{clienteController.cliente.contrasena}" />
+		<h:inputSecret id="contrasena" value="#{clienteController.cliente.contrasena}" />
 		<h:message for="contrasena"/>
 		
 		<h:outputLabel value="Fecha Nacimiento (yyyy/mm/dd):" for="fecha" />
@@ -74,6 +74,7 @@
 </h:dataTable>
 
 <h:commandButton action="ListadoClientes" value="listado de Clientes" immediate="true" />
+
 </h:form>
 </body> 
 </html>
