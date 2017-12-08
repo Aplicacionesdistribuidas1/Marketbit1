@@ -2,8 +2,10 @@ package ec.ups.edu.appdis.marketbit1.controlador;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 import ec.ups.edu.appdis.marketbit1.datos.ClienteDAO;
@@ -21,7 +23,7 @@ public class ClienteController {
 	private List<Cliente> clientes;
 	
 	private int id;
-	
+	private List<Cliente> dato;
 	@PostConstruct
 	public void init() {
 		cliente = new Cliente();
@@ -80,9 +82,29 @@ public class ClienteController {
 		return "CrearCliente";
 
 	}
+	public String send() { 
+		cliente = clidao.getCliente(cliente.getUsuario(), cliente.getContrasena()); 
+		if (cliente == null) {
+			cliente = new Cliente(); 
+			FacesContext.getCurrentInstance().addMessage( null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario o contrasena incorrectos!", " Login Error!")); 
+			return null; 
+			} else {
+				return "PaginaPrincipal"; 
+				} 
+		}
+
 	public String eliminarDatos(int id) {
 		clidao.borrar(id);
 		return "ListadoClientes";
+	}
+	
+
+	public List<Cliente> getDato() {
+		return dato;
+	}
+
+	public void setDato(List<Cliente> dato) {
+		this.dato = dato;
 	}
 		
 }
