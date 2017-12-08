@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+<h:form>
+	Bienvenido #{clienteController.cliente.usuario}
+	<h:panelGrid columns="3">
+	
+		<h:outputLabel value="Cliente:" for="cliente"/>
+		<h:commandButton action="CrearCliente" value="Crear" immediate="true" />
+		<h:commandButton action="ListadoClientes" value="Listar" immediate="true" />
+		<h:outputLabel value="Producto:" for="producto"/>
+		<h:commandButton action="CrearProducto" value="Crear" immediate="true" />
+		<h:commandButton action="ListadoProductos" value="Listar" immediate="true" />
+		<h:outputLabel value="	Categoria:" for="categoria"/>
+		<h:commandButton action="CrearCategoria" value="Crear" immediate="true" />
+		<h:commandButton action="ListadoCategoria" value="Listar" immediate="true" />
+		<h:outputLabel value="	Empleado:" for="empleado"/>
+		<h:commandButton action="CrearEmpleado" value="Crear" immediate="true" />
+		<h:commandButton action="ListadoEmpleados" value="Listar" immediate="true" />
+		</h:panelGrid> 
+</h:form>
+</body> 
+</html>
