@@ -1,43 +1,87 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 
-<h:head></h:head> 
-<f:metadata>
-	<f:viewParam name="id" value="#{clienteController.id}"></f:viewParam>
-</f:metadata>
-<body> 
+
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  				
+	<title>SALUD Y VIDA</title>
+
+  <!-- css -->
+  <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+   <link rel="stylesheet" type="resources/text/css" href="plugins/cubeportfolio/css/cubeportfolio.min.css"/>
+   <link href="resources/css/style.css" rel="stylesheet"/>
+  <!-- template skin -->
+  <link id="t-colors" href="resources/color/default.css" rel="stylesheet" />
+
+ 
+<head/>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+
+
+  <div id="wrapper">
+
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+      <div class="top-area">
+       
+      </div>
+      <div class="container navigation">
+
+        
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="probar.xhtml">Inicio</a></li>
+            <li class="active"><a href="PaginaPrincipal.xhtml">Menu Principal</a></li>
+            
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+    </nav>
+ <section id="intro" class="intro">
+      <div class="intro-content">
+        <div class="container">
+ <div class="wow fadeInDown" data-wow-offset="0" data-wow-delay="0.1s">
+               
+              </div>
+<h:form>
+
 <h1>Editar Cliente</h1>
 
-<h:form>
 	<h:panelGrid columns="3">
-		<h:outputLabel value="Id:" for="codigo"/>
+		<h:outputLabel value="Id:" for="codigo" style="color:#ffffff"/>
 		<h:inputText id="codigo" value="#{clienteController.cliente.codigo}" />
 		<h:message for="codigo"/>
 		
-		<h:outputLabel value="Cedula:" for="cedula"/>
+		<h:outputLabel value="Cedula:" for="cedula" style="color:#ffffff"/>
 		<h:inputText id="cedula" value="#{clienteController.cliente.cedula}" />
 		<h:message for="cedula"/>
 		
-		<h:outputLabel value="Nombres:" for="nombres"/>
+		<h:outputLabel value="Nombres:" for="nombres" style="color:#ffffff"/>
 		<h:inputText id="nombres" value="#{clienteController.cliente.nombres}" />
 		<h:message for="nombres"/>
 		
-		<h:outputLabel value="E-mail:" for="email"/>
+		<h:outputLabel value="E-mail:" for="email" style="color:#ffffff"/>
 		<h:inputText id="email" value="#{clienteController.cliente.email}" />
 		<h:message for="email"/>
 		
-		<h:outputLabel value="Usuario:" for="usuario"/>
+		<h:outputLabel value="Usuario:" for="usuario" style="color:#ffffff"/>
 		<h:inputText id="usuario" value="#{clienteController.cliente.usuario}" />
 		<h:message for="usuario"/>
 		
-		<h:outputLabel value="Contraseña:" for="contraseña"/>
-		<h:inputText id="contraseña" value="#{clienteController.cliente.contrasena}" />
+		<h:outputLabel value="Contraseña:" for="contraseña" style="color:#ffffff"/>
+		<h:inputSecret id="contraseña" value="#{clienteController.cliente.contrasena}" />
 		<h:message for="contraseña"/>
 		
-		<h:outputLabel value="Fecha Nacimiento (yyyy/mm/dd):" for="fecha" />
+		<h:outputLabel value="Fecha Nacimiento (yyyy/mm/dd):" for="fecha" style="color:#ffffff"/>
 		<h:inputText id="fecha" value="#{clienteController.cliente.fechaNacimiento}" >
 			<f:convertDateTime pattern="yyyy/mm/dd"/>
 		</h:inputText >
@@ -52,28 +96,33 @@
 	
 	<h:dataTable value="#{clienteController.cliente.ubicaciones}" var="ubicacion" id="tblUbicaciones">
 		<h:column>
-			<f:facet name="header">codigo</f:facet>
+			<f:facet name="header"><h:outputLabel value="CODIGO" for="Codigo" style="color:#ffffff" /></f:facet>
 			<h:inputText value="#{ubicacion.codigo}" />
 		</h:column>
 		<h:column>
-			<f:facet name="header">direccion</f:facet>
+			<f:facet name="header"><h:outputLabel value="DIRECCION" for="Direccion" style="color:#ffffff" /></f:facet>
 			<h:inputText value="#{ubicacion.direccion}" />
 		</h:column>
 		<h:column>
-			<f:facet name="header">sector</f:facet>
+			<f:facet name="header"><h:outputLabel value="SECTOR" for="Sector" style="color:#ffffff" /></f:facet>
 			<h:inputText value="#{ubicacion.sector}" />
 		</h:column>
 		<h:column>
-			<f:facet name="header">vectorx</f:facet>
+			<f:facet name="header"><h:outputLabel value="VECTORX" for="VectorX" style="color:#ffffff" /></f:facet>
 			<h:inputText value="#{ubicacion.vectorx}" />
 		</h:column>
 		<h:column>
-			<f:facet name="header">vectory</f:facet>
+			<f:facet name="header"><h:outputLabel value="VECTORY" for="VectorY" style="color:#ffffff" /></f:facet>
 			<h:inputText value="#{ubicacion.vectory}" />
 		</h:column>
 
 </h:dataTable>
-<h:commandButton action="listadoCliente" value="listado de Clientes" immediate="true" />
+<h:commandButton action="ListadoClientes.xhtml" value="listado de Clientes" immediate="true" />
 </h:form>
-</body> 
+	</div>
+	</div>
+	</section>
+	</div>
+	</body>
+</head>
 </html>

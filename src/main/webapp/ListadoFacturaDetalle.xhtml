@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+
+	<h:head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<title>MARKETBIT</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta name="description" content="Free HTML5 Website Template by gettemplates.co" />
+	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+	<meta name="author" content="gettemplates.co" />
+
+  				
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="resources/css/bootstrap.css"/>
+	
+	<link rel="stylesheet" href="resources/css/themify-icons.css"/>
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="resources/css/style.css"/>
+
+
+
+	<head/>
+	
+		
+	<div id="page">
+	<nav class="gtco-nav" role="navigation">
+		<div class="gtco-container">
+			<div class="row">
+				<div class="col-md-12 text-right gtco-contact">
+					<ul class="">
+						<li><a href="#"><i class="ti-mobile"></i> MARKETBIT </a></li>
+						
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-4 col-xs-12">
+					<div id="gtco-logo"><a href="PaginaPrincipal.xhtml">MARKETBIT <em>.</em></a></div>
+				</div>
+			
+			</div>
+			
+		</div>
+	</nav>
+
+	
+<div id="gtco-portfolio" class="gtco-section">
+		<div class="gtco-container">
+			<div class="row">
+				
+			</div>
+
+			<div class="row row-pb-md">
+				<div class="col-md-12">
+					<ul id="gtco-portfolio-list">
+																	
+						
+
+						 
+							<a href="#" class="color-5">
+								<div class="case-studies-summary">
+
+<h:form>
+
+ 	<h:outputText value="no existe registros guardados" rendered="#{empty facturadController.facturaDs}"></h:outputText>
+	<h1>Listado Detalle</h1>
+	<h:dataTable value="#{facturadController.facturaDs}" var="FacturaD" rendered="#{not empty facturadController.facturaDs}">
+	
+	<h:column>
+	<f:facet name="header">codigo</f:facet>
+	#{FacturaD.codigo}
+	</h:column>
+	<h:column>
+	<f:facet name="header">cantidad</f:facet>
+	#{FacturaD.cantidad}
+	</h:column>
+	<h:column>
+	<f:facet name="header">subtotal</f:facet>
+	#{FacturaD.subtotal}
+	</h:column>
+	<h:column>
+	<f:facet name="header">Acciones</f:facet>
+	<a href="EditarFacturaD.xhtml?id=#{FacturaD.codigo}">Editar</a>
+	</h:column>
+	<h:column>
+	<f:facet name="header">Borrar</f:facet>
+	<h:commandButton action="#{facturadController.eliminarDatos(FacturaD.codigo)}" value="Borrar" immediate="true" />
+	
+	</h:column>
+	</h:dataTable>
+	
+	<h:commandButton action="PaginaPrincipal" value="Regresar al menu principal" immediate="true" />
+</h:form>
+								</div>
+							</a>
+						
+						
+					</ul>		
+				</div>
+			</div>
+			
+						
+						
+		</div>
+	</div>
+
+		
+	</div>
+</h:head>
+</html>
+
+

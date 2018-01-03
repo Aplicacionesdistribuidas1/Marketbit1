@@ -1,54 +1,107 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 
-<h:head></h:head> 
-<body> 
+
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  				
+	<title>SALUD Y VIDA</title>
+
+  <!-- css -->
+  <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+   <link rel="stylesheet" type="resources/text/css" href="plugins/cubeportfolio/css/cubeportfolio.min.css"/>
+   <link href="resources/css/style.css" rel="stylesheet"/>
+  <!-- template skin -->
+  <link id="t-colors" href="resources/color/default.css" rel="stylesheet" />
+
+ 
+<head/>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+
+
+  <div id="wrapper">
+
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+      <div class="top-area">
+       
+      </div>
+      <div class="container navigation">
+
+        
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="probar.xhtml">Inicio</a></li>
+            <li class="active"><a href="PaginaPrincipal.xhtml">Menu Principal</a></li>
+            
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+    </nav>
+ <section id="intro" class="intro">
+      <div class="intro-content">
+        <div class="container">
+ <div class="wow fadeInDown" data-wow-offset="0" data-wow-delay="0.1s">
+                 </div>
+<h:form>
 <h:outputText value="no existe registros guardados" rendered="#{empty clienteController.clientes}"></h:outputText>
 	<h1>Listado Clientes</h1>
 	<h:dataTable value="#{clienteController.clientes}" var="cliente" rendered="#{not empty clienteController.clientes}">
 	
 	<h:column>
-	<f:facet name="header">codigo</f:facet>
+	<f:facet name="header"><h:outputLabel value="Codigo" for="Codigo" style="color:#000000" /></f:facet>
 	#{cliente.codigo}	
 	</h:column>
 	<h:column>
-	<f:facet name="header">cedula</f:facet>
+	<f:facet name="header"><h:outputLabel value="Cedula" for="Cedula" style="color:#000000" /></f:facet>
 	#{cliente.cedula}
 	</h:column>
 	<h:column>
-	<f:facet name="header">nombres</f:facet>
+	<f:facet name="header"><h:outputLabel value="Nombres" for="Nombres" style="color:#000000" /></f:facet>
 	#{cliente.nombres}
 	</h:column>
 	<h:column>
-	<f:facet name="header">e-mail</f:facet>
+	<f:facet name="header"><h:outputLabel value="Email" for="Email" style="color:#000000" /></f:facet>
 	#{cliente.email}
 	</h:column>
 	<h:column>
-	<f:facet name="header">usuario</f:facet>
+	<f:facet name="header"><h:outputLabel value="Usuario" for="Usuario" style="color:#000000" /></f:facet>
 	#{cliente.usuario}
 	</h:column>
 	<h:column>
-	<f:facet name="header">contresena</f:facet>
+	<f:facet name="header"><h:outputLabel value="Contraseña" for="Contraseña" style="color:#000000" /></f:facet>
 	#{cliente.contrasena}
 	</h:column>
 	<h:column>
-	<f:facet name="header">Fecha nacimiento</f:facet>
+	<f:facet name="header"><h:outputLabel value="Fecha de nacimiento" for="fecha" style="color:#ffffff"/></f:facet>
 	#{cliente.fechaNacimiento}
 	</h:column>
-	<h:column>
-	<f:facet name="header">Acciones</f:facet>
-	<a href="EditarCliente.xhtml?id=#{cliente.codigo}">Editar</a>
-	</h:column>
-	<h:column>
-	<f:facet name="header">Borrar</f:facet>
-	<h:commandButton action="#{clienteController.eliminarDatos(cliente.codigo)}" value="Borrar" />
 	
+	<h:column>
+	<f:facet name="header"><h:outputLabel value="ACCIONES" for="Acciones" style="color:#ffffff" /></f:facet>
+	<a href="EditarCliente.xhtml?id=#{cliente.codigo}"><h:outputLabel value="Editar" for="Editar" style="color:#ffffff"/></a>
+	</h:column>
+	
+	<h:column>
+	<f:facet name="header"><h:outputLabel value="BORRAR" for="Borrar" style="color:#ffffff" /></f:facet>
+	<h:commandButton action="#{clienteController.eliminarDatos(cliente.codigo)}" value="Borrar"  />
 	</h:column>
 	</h:dataTable>
-<h:commandButton action="crearCliente" value="crear nueva persona" />
+	<h:commandButton action="PaginaPrincipal" value="Regresar al menu principal" immediate="true" />
 
-</body> 
+</h:form>
+	</div>
+	</div>
+	</section>
+	</div>
+	</body>
+</head>
 </html>

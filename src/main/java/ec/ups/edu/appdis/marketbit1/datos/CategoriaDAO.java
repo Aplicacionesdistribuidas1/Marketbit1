@@ -42,7 +42,7 @@ public class CategoriaDAO {
 	}
 	
 	public List<Categoria> listadoCategoria(){
-		Query query = em.createQuery("SELECT c FROM categoria c", Categoria.class);
+		Query query = em.createQuery("SELECT c FROM Categoria c", Categoria.class);
 		List<Categoria>listado = query.getResultList();
 		return listado;
 	}

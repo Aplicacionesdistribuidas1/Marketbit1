@@ -1,6 +1,7 @@
 package ec.ups.edu.appdis.marketbit1.modelo;
 
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 
@@ -26,19 +29,15 @@ public class FacCabecera {
 	@Column(name="facC_numero_factura")
 	/*@Size(max=20)*/
 	private int numero_factura;
-	
-	@Column(name="facC_total")
-	/*@Size(min=2,max=20)*/
-	private double total;
-	
-	@Column(name="facC_iva")
-	/*@Size(min=2, max=10)*/
-	private double iva;
+		
+	@Temporal(value = TemporalType.DATE)
+	@Column(name="facC_fecEmision")
+	private Date fechaEmision;
 	/*
 	@ManyToOne(optional=true)
 	@JoinColumn(name="cli_codigo")
 	private cliente cliente;*/
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	@JoinColumn(name="id_facCab", referencedColumnName="facC_codigo")
 	private Set<FacturaDetalle> detalles=new HashSet<>();
 	
@@ -68,21 +67,14 @@ public class FacCabecera {
 		this.numero_factura = numero_factura;
 	}
 
-	public double getTotal() {
-		return total;
+	public Date getFechaEmision() {
+		return fechaEmision;
 	}
 
-	public void setTotal(double total) {
-		this.total = total;
+	public void setFechaEmision(Date fechaEmision) {
+		this.fechaEmision = fechaEmision;
 	}
 
-	public double getIva() {
-		return iva;
-	}
-
-	public void setIva(double iva) {
-		this.iva = iva;
-	}
 	public void addDetalle(FacturaDetalle detalle) {
 		if(detalles==null)
 			detalles=new HashSet<>();
@@ -91,10 +83,11 @@ public class FacCabecera {
 
 	@Override
 	public String toString() {
-		return "fac_cabecera [codigo=" + codigo + ", numero_factura=" + numero_factura + ", total=" + total + ", iva="
-				+ iva + ", detalles=" + detalles + "]";
+		return "FacCabecera [codigo=" + codigo + ", numero_factura=" + numero_factura + ", fechaEmision=" + fechaEmision
+				+ ", detalles=" + detalles + "]";
 	}
-	
+
+		
 
 
 }
